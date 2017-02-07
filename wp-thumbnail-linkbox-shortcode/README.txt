@@ -4,7 +4,7 @@ Donate link:
 Tags: shortcode, thumbnail, link
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,8 +41,11 @@ An answer to that question.
 
 == Changelog ==
 
-= 0.1.1 = 
-Update README.txt
+= 0.1.2 =
+* Added : Add the value "none" of Shortcode "target" attribute.
+
+= 0.1.1 =
+* Update README.txt
 
 = 0.1.0 =
 * Initial release.

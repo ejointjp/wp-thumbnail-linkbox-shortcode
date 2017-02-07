@@ -3,7 +3,7 @@
 Plugin Name: WP Thumbnail Linkbox Shortcode
 Plugin URI:
 Description: You can easily create links with thumbnails with shortcode.
-Version: 0.1.1
+Version: 0.1.2
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 License: GPL2
@@ -29,7 +29,7 @@ class Wp_thumbnail_linkbox_shortcode
 {
 
   private $options;
-  const VERSION = '0.1.1';
+  const VERSION = '0.1.2';
 
   public function __construct(){
 
@@ -222,11 +222,16 @@ class Wp_thumbnail_linkbox_shortcode
     $width = $this->is_numeric($width) ? $width : $this->options['width'];
     $ratio = $this->is_numeric_or_decimal($ratio) ? $ratio : $this->options['ratio'];
 
-    $option_target = $options['target'];
-    $option_target = $option_target ? ' target="' . esc_attr($option_target) . '"' : null;
-    //ショートコードからtargetの引数が渡されたら優先する｡なければ設定ページで指定された値を使う｡
-    $target = !is_null($target) ? ' target="_' . esc_attr($target) . '"' : $option_target;
-
+    //ショートコードでtarget=noneが渡された場合はターゲットなし
+    if($target == 'none'){
+      $target = "";
+    } else {
+      //ショートコードでtargetがない､またはnone以外の値が指定された場合
+      $option_target = $options['target'];
+      $option_target = $option_target ? ' target="' . esc_attr($option_target) . '"' : "";
+      //ショートコードからtargetの引数が渡されたら優先する｡なければ設定ページで指定された値を使う｡
+      $target = !is_null($target) ? ' target="_' . esc_attr($target) . '"' : $option_target;
+    }
 
     //値がない場合はデフォルト値を設定する
     if(!$width) $width = 80;
