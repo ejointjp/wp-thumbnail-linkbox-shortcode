@@ -3,7 +3,7 @@
 Plugin Name: WP Thumbnail Linkbox Shortcode
 Plugin URI:
 Description: You can easily create links with thumbnails with shortcode.
-Version: 0.1.0
+Version: 0.1.1
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 License: GPL2
@@ -29,7 +29,7 @@ class Wp_thumbnail_linkbox_shortcode
 {
 
   private $options;
-  const VERSION = '0.1.0';
+  const VERSION = '0.1.1';
 
   public function __construct(){
 

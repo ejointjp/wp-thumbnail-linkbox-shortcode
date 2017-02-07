@@ -4,7 +4,7 @@ Donate link:
 Tags: shortcode, thumbnail, link
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.0.1
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ When posting a link to another site or page in the article, we create a link inc
 
 [Plugin Page](http://e-joint.jp/249/)
 
-[Github](
+[Github](https://github.com/ejointjp/wp-thumbnail-linkbox-shortcode)
 
 == Installation ==
 
@@ -34,14 +34,17 @@ When posting a link to another site or page in the article, we create a link inc
 An answer to that question.
 
 == Screenshots ==
+
 1. Generated link sample.
 2. Setting page sample.
 
 
 == Changelog ==
 
-= 0.1.0 =
+= 0.1.1 = 
+Update README.txt
 
+= 0.1.0 =
 * Initial release.
 
 == Upgrade notice ==
