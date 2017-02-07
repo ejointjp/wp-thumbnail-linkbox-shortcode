@@ -1,0 +1,22 @@
+{
+  "name": "wp-thumbnail-linkbox-shortcode",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.3",
+    "gulp-cssbeautify": "^0.1.3",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-pleeease": "^2.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
