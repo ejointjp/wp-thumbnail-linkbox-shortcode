@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2017-02-07 12:30+0900\n"
+"POT-Creation-Date: 2017-02-10 12:29+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -24,29 +24,29 @@ msgstr ""
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp-thumbnail-linkbox-shortcode.php:57 wp-thumbnail-linkbox-shortcode.php:58
+#: wp-thumbnail-linkbox-shortcode.php:59 wp-thumbnail-linkbox-shortcode.php:60
 msgid "WP Thumbnail Linkbox"
 msgstr ""
 
-#: wp-thumbnail-linkbox-shortcode.php:88
+#: wp-thumbnail-linkbox-shortcode.php:90
 msgid "How to Use"
 msgstr "使い方\t"
 
-#: wp-thumbnail-linkbox-shortcode.php:89
+#: wp-thumbnail-linkbox-shortcode.php:91
 msgid ""
 "1. Please drag and drop the link (bookmarklet) below to the bookmark bar."
 msgstr ""
 "1. 下のリンク（ブックマークレット）をブックマークバーにドラッグ&ドロップして"
 "ください｡"
 
-#: wp-thumbnail-linkbox-shortcode.php:91
+#: wp-thumbnail-linkbox-shortcode.php:93
 msgid ""
 "2. Open the page for which you want to create a link and execute the "
 "bookmarklet."
 msgstr ""
 "2. リンクを生成したいページをブラウザで開き､ブックマークレットを実行します｡"
 
-#: wp-thumbnail-linkbox-shortcode.php:92
+#: wp-thumbnail-linkbox-shortcode.php:94
 msgid ""
 "3. A short code will be displayed in the dialog box, please copy and paste "
 "it in the WordPress article."
@@ -54,44 +54,64 @@ msgstr ""
 "3. ダイアログボックスにショートコードが表示されるので､コピーして､WordPressの"
 "記事に貼り付けます｡"
 
-#: wp-thumbnail-linkbox-shortcode.php:104
+#: wp-thumbnail-linkbox-shortcode.php:106
 msgid "Do not use default CSS"
 msgstr "デフォルトのCSSを使わない"
 
-#: wp-thumbnail-linkbox-shortcode.php:105
+#: wp-thumbnail-linkbox-shortcode.php:107
 msgid "Value of target attribute"
 msgstr "ターゲット属性の値"
 
-#: wp-thumbnail-linkbox-shortcode.php:106
+#: wp-thumbnail-linkbox-shortcode.php:108
 msgid "Width of thumbnail to be acquired (px)(Positive integer)"
 msgstr "取得するサムネイルの横幅（px）（正の整数）"
 
-#: wp-thumbnail-linkbox-shortcode.php:107
+#: wp-thumbnail-linkbox-shortcode.php:109
 msgid "Ratio of width（Positive integer or decimal)"
 msgstr "横幅の比率（正の整数または小数）"
 
-#: wp-thumbnail-linkbox-shortcode.php:125
+#: wp-thumbnail-linkbox-shortcode.php:127
 msgid "Please enter a positive integer for Width of thumbnail to be acquired."
 msgstr "取得するサムネイルの横幅に､正の整数を入力してください"
 
-#: wp-thumbnail-linkbox-shortcode.php:137
+#: wp-thumbnail-linkbox-shortcode.php:139
 msgid "Please enter a positive integer or decimal for Ratio of width."
 msgstr "横幅の比率に､正の整数または小数を入力してください"
 
-#: wp-thumbnail-linkbox-shortcode.php:154
+#: wp-thumbnail-linkbox-shortcode.php:156
 msgid "None"
 msgstr "なし"
 
-#: wp-thumbnail-linkbox-shortcode.php:161
-#: wp-thumbnail-linkbox-shortcode.php:168
+#: wp-thumbnail-linkbox-shortcode.php:163
+#: wp-thumbnail-linkbox-shortcode.php:170
 msgid "Default"
 msgstr "初期値"
 
-#: wp-thumbnail-linkbox-shortcode.php:161
-#: wp-thumbnail-linkbox-shortcode.php:168
+#: wp-thumbnail-linkbox-shortcode.php:163
+#: wp-thumbnail-linkbox-shortcode.php:170
 msgid "If nothing is entered it will be the default value."
 msgstr "何も入力しない場合は､初期値が適用されます｡"
 
-#: wp-thumbnail-linkbox-shortcode.php:273
+#: wp-thumbnail-linkbox-shortcode.php:280
 msgid "URL format is invalid.(WP Thumbnail Linkbox Shortcode)"
 msgstr "URLの形式が不正です｡"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Thumbnail Linkbox Shortcode"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "You can easily create links with thumbnails with shortcode."
+msgstr "サムネイルつきのリンクをショートコードで簡単に作成できます｡"
+
+#. Author of the plugin/theme
+msgid "e-JOINT.jp"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://e-joint.jp"
+msgstr ""

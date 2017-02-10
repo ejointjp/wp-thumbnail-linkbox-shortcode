@@ -1,0 +1,108 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Thumbnail Linkbox Shortcode\n"
+"POT-Creation-Date: 2017-02-10 12:28+0900\n"
+"PO-Revision-Date: 2017-02-10 12:28+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wp-thumbnail-linkbox-shortcode.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: wp-thumbnail-linkbox-shortcode.php:59 wp-thumbnail-linkbox-shortcode.php:60
+msgid "WP Thumbnail Linkbox"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:90
+msgid "How to Use"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:91
+msgid ""
+"1. Please drag and drop the link (bookmarklet) below to the bookmark bar."
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:93
+msgid ""
+"2. Open the page for which you want to create a link and execute the "
+"bookmarklet."
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:94
+msgid ""
+"3. A short code will be displayed in the dialog box, please copy and paste "
+"it in the WordPress article."
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:106
+msgid "Do not use default CSS"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:107
+msgid "Value of target attribute"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:108
+msgid "Width of thumbnail to be acquired (px)(Positive integer)"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:109
+msgid "Ratio of width（Positive integer or decimal)"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:127
+msgid "Please enter a positive integer for Width of thumbnail to be acquired."
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:139
+msgid "Please enter a positive integer or decimal for Ratio of width."
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:156
+msgid "None"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:163
+#: wp-thumbnail-linkbox-shortcode.php:170
+msgid "Default"
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:163
+#: wp-thumbnail-linkbox-shortcode.php:170
+msgid "If nothing is entered it will be the default value."
+msgstr ""
+
+#: wp-thumbnail-linkbox-shortcode.php:280
+msgid "URL format is invalid.(WP Thumbnail Linkbox Shortcode)"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Thumbnail Linkbox Shortcode"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "You can easily create links with thumbnails with shortcode."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "e-JOINT.jp"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://e-joint.jp"
+msgstr ""

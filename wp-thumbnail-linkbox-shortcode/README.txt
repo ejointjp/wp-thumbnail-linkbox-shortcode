@@ -4,7 +4,7 @@ Donate link:
 Tags: shortcode, thumbnail, link
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,10 +22,30 @@ When posting a link to another site or page in the article, we create a link inc
 
 == Installation ==
 
-1. Upload `wp-thumbnail-linkbox-shortcode` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+= Install =
+
+1. Upload `wp-thumbnail-linkbox-shortcode` folder to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Drag and drop the bookmarklet displayed on the setting page onto the bookmark bar of the browser.
 4. You can create a Link by setting page and bookmarklet.
+
+= How to use Bookmarklet =
+
+1. Open a web page that contains the text you want to quote in a separate tab or window from the WordPress article creation screen.
+2. With the Web page you want to link displayed, execute the bookmarklet.
+3. A short code is generated in the displayed dialog box, and it copies it and pastes it in WordPress article.
+
+= インストール =
+
+1. `wp-thumbnail-linkbox-shortcode` フォルダを /wp-content/plugins/ ディレクトリにアップロードします｡
+2. WordPressのプラグインメニューからプラグインを有効化します｡
+3. WP Thumbnail Linkbox の設定ページにあるブックマークレットを､お使いのブラウザのブックマークバーにドラッグ&ドロップで登録します｡
+
+= ブックマークレットの使い方 =
+
+1. WordPressの記事作成ページとは別タブかウインドウで､リンクしたいWebページを開きます｡
+2. リンクしたいWebページが表示されている状態で､ブックマークレットを実行します｡
+3. 表示されるダイアログボックス内に､ショートコードが生成されます｡これをコピーしてWordPressの記事にペーストします｡
 
 == Frequently asked questions ==
 

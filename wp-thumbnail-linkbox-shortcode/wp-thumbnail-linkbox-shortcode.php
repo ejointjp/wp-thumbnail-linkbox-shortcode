@@ -1,15 +1,17 @@
 <?php
 /*
 Plugin Name: WP Thumbnail Linkbox Shortcode
-Plugin URI:
+Plugin URI: http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/
 Description: You can easily create links with thumbnails with shortcode.
-Version: 0.1.2
+Version: 0.1.3
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
+Text Domain: wp-thumbnail-linkbox-shortcode
+Domain Path: /languages
 License: GPL2
 */
 
-/*  Copyright 2016 e-JOINT.jp (email : mail@e-joint.jp)
+/*  Copyright 2017 e-JOINT.jp (email : mail@e-joint.jp)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -29,12 +31,12 @@ class Wp_thumbnail_linkbox_shortcode
 {
 
   private $options;
-  const VERSION = '0.1.2';
+  const VERSION = '0.1.3';
 
   public function __construct(){
 
     //翻訳ファイルの読み込み
-    load_plugin_textdomain('wp-thumbnail-linkbox-shortcode', false, basename(dirname(__FILE__)) . '/language');
+    load_plugin_textdomain('wp-thumbnail-linkbox-shortcode', false, basename(dirname(__FILE__)) . '/languages');
 
     //設定画面を追加
     add_action( 'admin_menu', array(&$this, 'add_plugin_page') );
