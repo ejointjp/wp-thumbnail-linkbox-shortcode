@@ -13,7 +13,7 @@ $lb-color: #333 !default;
   margin: $lb-margin;
   background: $lb-background;
 
-  a{
+  > a {
     display: inline-flex;
     padding: $lb-padding;
     border: $lb-border;
@@ -27,7 +27,7 @@ $lb-color: #333 !default;
 
     width: $lb-img-width;
     order: 1;
-    img {
+    > img {
       max-width: 100%;
     }
   }
