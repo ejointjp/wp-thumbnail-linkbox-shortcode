@@ -2,15 +2,13 @@
   margin: 16px 0;
   background: transparent; }
 
-.wptls a {
+.wptls > a {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 16px;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  color: #333;
-  text-decoration: none; }
+  border-radius: 3px; }
 
 .wptls__img {
   margin: 0 0 0 16px;
@@ -19,7 +17,7 @@
       -ms-flex-order: 1;
           order: 1; }
 
-.wptls__img img {
+.wptls__img > img {
   max-width: 100%; }
 
 .wptls__content {
