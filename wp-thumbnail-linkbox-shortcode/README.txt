@@ -3,8 +3,8 @@ Contributors: ejointjp
 Donate link:
 Tags: shortcode, thumbnail, link
 Requires at least: 4.0
-Tested up to: 4.7.2
-Stable tag: 0.1.3
+Tested up to: 4.9.1
+Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ You can easily create links with thumbnails with shortcode.
 
 When posting a link to another site or page in the article, we create a link including the thumbnail, title and domain of the linked page.
 
-[Plugin Page](http://e-joint.jp/249/)
+[Plugin Page](http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/)
 
 [Github](https://github.com/ejointjp/wp-thumbnail-linkbox-shortcode)
 
@@ -24,8 +24,8 @@ When posting a link to another site or page in the article, we create a link inc
 
 = Install =
 
-1. Upload `wp-thumbnail-linkbox-shortcode` folder to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Get "WP Thumbnail Linkbox Shortcode" from "Plugins > New add" on the WordPress dashboard.
+2. Activate this.
 3. Drag and drop the bookmarklet displayed on the setting page onto the bookmark bar of the browser.
 4. You can create a Link by setting page and bookmarklet.
 
@@ -37,9 +37,9 @@ When posting a link to another site or page in the article, we create a link inc
 
 = インストール =
 
-1. `wp-thumbnail-linkbox-shortcode` フォルダを /wp-content/plugins/ ディレクトリにアップロードします｡
-2. WordPressのプラグインメニューからプラグインを有効化します｡
-3. WP Thumbnail Linkbox の設定ページにあるブックマークレットを､お使いのブラウザのブックマークバーにドラッグ&ドロップで登録します｡
+1. 「プラグイン > 新規追加」から「WP Thumbnail Linkbox Shortcode」を入手します。
+2. プラグインを有効化します｡
+3. 「WP Thumbnail Linkbox」の設定ページにあるブックマークレットを､お使いのブラウザのブックマークバーにドラッグ&ドロップで登録します｡
 
 = ブックマークレットの使い方 =
 
@@ -61,11 +61,14 @@ An answer to that question.
 
 == Changelog ==
 
-= 0.1.2 =
-* Added : Add the value "none" of Shortcode "target" attribute.
+= 0.1.5 =
+* Fix.
 
-= 0.1.1 =
-* Update README.txt
+= 0.1.4 =
+* Update: "color" and "text-decoration" attribute of link title deleted.
+
+= 0.1.2 =
+* Add: Add the value "none" of Shortcode "target" attribute.
 
 = 0.1.0 =
 * Initial release.
