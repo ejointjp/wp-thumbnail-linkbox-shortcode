@@ -3,7 +3,6 @@
   background: transparent; }
 
 .wptls > a {
-  display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 16px;
@@ -14,17 +13,16 @@
 .wptls__img {
   margin: 0 0 0 16px;
   width: 80px;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1; }
+  -ms-flex-order: 1;
+      order: 1; }
 
 .wptls__img > img {
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto !important; }
 
 .wptls__content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
+  -ms-flex: 1;
+      flex: 1; }
 
 .wptls__favicon {
   width: 16px;

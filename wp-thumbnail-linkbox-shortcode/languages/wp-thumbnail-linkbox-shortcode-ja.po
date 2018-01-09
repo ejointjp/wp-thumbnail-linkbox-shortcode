@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2017-02-10 12:29+0900\n"
+"POT-Creation-Date: 2018-01-09 14:10+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -21,10 +21,10 @@ msgstr ""
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
 "_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp-thumbnail-linkbox-shortcode.php:59 wp-thumbnail-linkbox-shortcode.php:60
+#: wp-thumbnail-linkbox-shortcode.php:60 wp-thumbnail-linkbox-shortcode.php:61
 msgid "WP Thumbnail Linkbox"
 msgstr ""
 
@@ -70,11 +70,19 @@ msgstr "取得するサムネイルの横幅（px）（正の整数）"
 msgid "Ratio of width（Positive integer or decimal)"
 msgstr "横幅の比率（正の整数または小数）"
 
-#: wp-thumbnail-linkbox-shortcode.php:127
+#: wp-thumbnail-linkbox-shortcode.php:110
+msgid ""
+"For internal links, use \"eyecatch\" for thumbnails (Select thumbnail size "
+"to enable it.)"
+msgstr ""
+"内部リンクの場合、サムネイルにアイキャッチ画像を使う（有効にするにはサムネイ"
+"ルサイズを選択します。）"
+
+#: wp-thumbnail-linkbox-shortcode.php:128
 msgid "Please enter a positive integer for Width of thumbnail to be acquired."
 msgstr "取得するサムネイルの横幅に､正の整数を入力してください"
 
-#: wp-thumbnail-linkbox-shortcode.php:139
+#: wp-thumbnail-linkbox-shortcode.php:140
 msgid "Please enter a positive integer or decimal for Ratio of width."
 msgstr "横幅の比率に､正の整数または小数を入力してください"
 
@@ -92,26 +100,13 @@ msgstr "初期値"
 msgid "If nothing is entered it will be the default value."
 msgstr "何も入力しない場合は､初期値が適用されます｡"
 
-#: wp-thumbnail-linkbox-shortcode.php:280
+#: wp-thumbnail-linkbox-shortcode.php:179
+msgid "Disabled"
+msgstr "無効"
+
+#: wp-thumbnail-linkbox-shortcode.php:336
 msgid "URL format is invalid.(WP Thumbnail Linkbox Shortcode)"
 msgstr "URLの形式が不正です｡"
 
-#. Plugin Name of the plugin/theme
-msgid "WP Thumbnail Linkbox Shortcode"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "You can easily create links with thumbnails with shortcode."
-msgstr "サムネイルつきのリンクをショートコードで簡単に作成できます｡"
-
-#. Author of the plugin/theme
-msgid "e-JOINT.jp"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://e-joint.jp"
-msgstr ""
+#~ msgid "You can easily create links with thumbnails with shortcode."
+#~ msgstr "サムネイルつきのリンクをショートコードで簡単に作成できます｡"

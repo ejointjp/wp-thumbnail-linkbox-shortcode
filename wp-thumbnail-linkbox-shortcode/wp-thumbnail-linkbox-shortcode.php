@@ -3,7 +3,7 @@
 Plugin Name: WP Thumbnail Linkbox Shortcode
 Plugin URI: http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/
 Description: You can easily create links with thumbnails with shortcode.
-Version: 0.1.5
+Version: 0.2.0
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 Text Domain: wp-thumbnail-linkbox-shortcode
@@ -31,7 +31,7 @@ class Wp_thumbnail_linkbox_shortcode
 {
 
   private $options;
-  const VERSION = '0.1.5';
+  const VERSION = '0.2.0';
 
   public function __construct(){
 
@@ -50,6 +50,7 @@ class Wp_thumbnail_linkbox_shortcode
     //ショートコードを使えるようにする
     add_shortcode('link', array(&$this, 'generate_shortcode') );
 
+    $this->options = get_option('wptls-setting');
   }
 
   //設定画面を追加
@@ -67,7 +68,6 @@ class Wp_thumbnail_linkbox_shortcode
   //設定画面を生成
   public function create_admin_page() {
 
-    $this->options = get_option( 'wptls-setting' );
     ?>
     <div class="wrap">
       <h2>WP Thumbnail Linkbox Shortcode</h2>
@@ -105,18 +105,19 @@ class Wp_thumbnail_linkbox_shortcode
 
     add_settings_field( 'nocss', __('Do not use default CSS', 'wp-thumbnail-linkbox-shortcode'), array( &$this, 'nocss_callback' ), 'wptls-setting', 'wptls-setting-section-id' );
     add_settings_field( 'target', __('Value of target attribute', 'wp-thumbnail-linkbox-shortcode'), array( &$this, 'target_callback' ), 'wptls-setting', 'wptls-setting-section-id' );
-    add_settings_field( 'width', __('Width of thumbnail to be acquired (px)(Positive integer)', 'wp-thumbnail-linkbox-shortcode'), array( &$this, 'width_callback' ), 'wptls-setting', 'wptls-setting-section-id' );
-    add_settings_field( 'ratio', __('Ratio of width（Positive integer or decimal)', 'wp-thumbnail-linkbox-shortcode'), array( &$this, 'ratio_callback' ), 'wptls-setting', 'wptls-setting-section-id' );
+    add_settings_field( 'width', __('Width of thumbnail to be acquired (px)(Positive integer)', 'wp-thumbnail-linkbox-shortcode') . '*', array( &$this, 'width_callback' ), 'wptls-setting', 'wptls-setting-section-id' );
+    add_settings_field( 'ratio', __('Ratio of width（Positive integer or decimal)', 'wp-thumbnail-linkbox-shortcode') . '*', array( &$this, 'ratio_callback' ), 'wptls-setting', 'wptls-setting-section-id' );
+    add_settings_field( 'thumbnail-size', __('For internal links, use "eyecatch" for thumbnails (Select thumbnail size to enable it.)', 'wp-thumbnail-linkbox-shortcode'), array(&$this, 'thumbnail_size_callback'), 'wptls-setting', 'wptls-setting-section-id');
   }
 
-  public function sanitize( $input ){
 
-      $this->options = get_option('wptls-setting');
+  public function sanitize( $input ){
 
       $new_input = array();
 
       $new_input['nocss'] = $input['nocss'];
       $new_input['target'] = $input['target'];
+      $new_input['thumbnail-size'] = $input['thumbnail-size'];
 
       //整数かどうかチェック
       if($input['width'] == '' || $this->is_numeric($input['width'])){
@@ -141,7 +142,6 @@ class Wp_thumbnail_linkbox_shortcode
         //値をDBの設定値に戻す
         $new_input['ratio'] = isset($this->options['ratio']) ? $this->options['ratio'] : '';
       }
-
       return $new_input;
   }
 
@@ -171,9 +171,22 @@ class Wp_thumbnail_linkbox_shortcode
     <?php
   }
 
+  public function thumbnail_size_callback() {
+    //設定されているサムネイルサイズの一覧を取得
+    $size_list = get_intermediate_image_sizes();
+
+    ?><select name="wptls-setting[thumbnail-size]">
+        <?php echo '<option value="disabled"' . selected($this->options['thumbnail-size'], 'disabled') . '>' . __('Disabled', 'wp-thumbnail-linkbox-shortcode') . '</option>' . "\n";?>
+        <?php foreach( $size_list as $size ){
+          echo '<option value="' . $size . '"' . selected($this->options['thumbnail-size'], $size) . '>' . $size . '</option>' . "\n";
+        } ?>
+        <?php echo '<option value="full"' . selected($this->options['thumbnail-size'], 'full') . '>full</option>' . "\n";?>
+      </select>
+    <?php
+  }
+
   //スタイルシートの追加
   public function add_styles() {
-    $this->options = get_option('wptls-setting');
 
     if(isset($this->options['nocss'])) {
       if ( !$this->options['nocss'] ) {
@@ -181,6 +194,39 @@ class Wp_thumbnail_linkbox_shortcode
       }
     } else {
       wp_enqueue_style( 'wptls', plugins_url( 'css/wp-thumbnail-linkbox-shortcode.min.css', __FILE__ ), array(), null, 'all' );
+    }
+  }
+
+  // サムネイルを選択
+  private function use_eyecatch() {
+
+    if(isset($this->options['thumbnail-size'])) {
+      if($this->options['thumbnail-size'] !== 'disabled') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  private function is_internal_link($href) {
+    $site_domain = get_bloginfo('url');
+
+    if(strpos($href, $site_domain) === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // 内部リンクのeyecatchが利用できる場合はpostIDを返す
+  public function is_eyecatch($href) {
+    $post_id = url_to_postid($href);
+
+    if($this->use_eyecatch() && $this->is_internal_link($href) && has_post_thumbnail($post_id)) {
+      return $post_id;
+    } else {
+      return false;
     }
   }
 
@@ -256,10 +302,20 @@ class Wp_thumbnail_linkbox_shortcode
     $domain = $parse['host'];
 
     if ( $this->is_url($href) ) {
+
+      $post_id = $this->is_eyecatch($href);
+
       $html  = '<div class="' . $name . '">';
       $html .= '<a href="' . $href . '"' . $target . '>';
       $html .= '<figure class="' . $name . '__img">';
-      $html .= '<img src="http://s.wordpress.com/mshots/v1/' . rawurlencode($href) . $query . '" alt="' . $title . '">';
+
+      if($post_id) {
+        $html .= get_the_post_thumbnail( $post_id, $this->options['thumbnail-size']);
+
+      } else {
+        $html .= '<img src="http://s.wordpress.com/mshots/v1/' . rawurlencode($href) . $query . '" alt="' . $title . '">';
+      }
+
       $html .= '</figure>';
       $html .= '<div class="' . $name . '__content">';
       $html .= '<div class="' . $name . '__title">' . $title . '</div>';

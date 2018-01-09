@@ -4,7 +4,7 @@ Donate link:
 Tags: shortcode, thumbnail, link
 Requires at least: 4.0
 Tested up to: 4.9.1
-Stable tag: 0.1.5
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ An answer to that question.
 
 
 == Changelog ==
+
+= 0.2.0 =
+* Update: For internal links, you can now display "eyecatch" images on thumbnails.
 
 = 0.1.5 =
 * Fix.
