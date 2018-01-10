@@ -190,10 +190,10 @@ class Wp_thumbnail_linkbox_shortcode
 
     if(isset($this->options['nocss'])) {
       if ( !$this->options['nocss'] ) {
-        wp_enqueue_style( 'wptls', plugins_url( 'css/wp-thumbnail-linkbox-shortcode.min.css', __FILE__ ), array(), null, 'all' );
+        wp_enqueue_style( 'wptls', plugins_url( 'assets/css/wp-thumbnail-linkbox-shortcode.css', __FILE__ ), array(), null, 'all' );
       }
     } else {
-      wp_enqueue_style( 'wptls', plugins_url( 'css/wp-thumbnail-linkbox-shortcode.min.css', __FILE__ ), array(), null, 'all' );
+      wp_enqueue_style( 'wptls', plugins_url( 'assets/css/wp-thumbnail-linkbox-shortcode.css', __FILE__ ), array(), null, 'all' );
     }
   }
 

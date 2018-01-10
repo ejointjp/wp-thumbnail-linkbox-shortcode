@@ -1,6 +1,7 @@
 .wptls {
   margin: 16px 0;
-  background: transparent; }
+  background: transparent;
+}
 
 .wptls > a {
   display: -ms-inline-flexbox;
@@ -8,34 +9,40 @@
   padding: 16px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .wptls__img {
   margin: 0 0 0 16px;
   width: 80px;
   -ms-flex-order: 1;
-      order: 1; }
+      order: 1;
+}
 
 .wptls__img > img {
   max-width: 100%;
-  height: auto !important; }
+  height: auto !important;
+}
 
 .wptls__content {
   -ms-flex: 1;
-      flex: 1; }
+      flex: 1;
+}
 
 .wptls__favicon {
   width: 16px;
   height: 16px;
   vertical-align: middle;
   margin-right: 5px;
-  border-radius: 1px; }
+  border-radius: 1px;
+}
 
 .wptls__title {
   margin: 0 0 8px;
   font-weight: bold;
   font-size: 14px;
-  line-height: 1.4; }
+  line-height: 1.4;
+}
 
 .wptls__domain {
   padding-top: 9px;
@@ -43,4 +50,6 @@
   color: #999;
   word-wrap: break-word;
   font-size: 0.7em;
-  line-height: 1; }
+  line-height: 1;
+}
+
