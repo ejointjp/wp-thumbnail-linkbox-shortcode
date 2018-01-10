@@ -4,7 +4,7 @@ Donate link:
 Tags: shortcode, thumbnail, link
 Requires at least: 4.0
 Tested up to: 4.9.1
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.3.0 =
+* Fix.
+
 = 0.2.0 =
 * Update: For internal links, you can now display "eyecatch" images on thumbnails.
 
@@ -78,6 +81,16 @@ An answer to that question.
 
 == Upgrade notice ==
 
+= 0.3.0 =
+The css and scss directories have changed.
+cssおよびscssのディレクトリが変更になりました。
 
+css/thumbnail-linkbox-shortcode.css
+↓
+assets/css/thumbnail-linkbox-shortcode.css
+
+scss/thumbnail-linkbox-shortcode.scss
+↓
+assets/scss/thumbnail-linkbox-shortcode.scss
 
 == Arbitrary section 1 ==

@@ -1,6 +1,6 @@
 {
   "name": "wp-thumbnail-linkbox-shortcode",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "scripts": {
     "test": "NODE_ENV=production node webpack.config",
