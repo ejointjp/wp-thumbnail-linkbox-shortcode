@@ -1,9 +1,8 @@
-$lb-background: transparent !default;
-$lb-border: 1px solid #ccc !default;
-$lb-margin: 16px 0 !default;
+$lb-background: #f2f2f2 !default;
+// $lb-border: 3px solid #999 !default;
+$lb-margin: 24px 0 !default;
 $lb-padding: 16px !default;
-$lb-img-width: 80px !default;
-$lb-img-margin-right: 16px !default;
+$lb-img-width: 72px !default;
 $lb-radius: 3px !default;
 $lb-uri-font-size: 0.7em !default;
 $lb-title-font-size: 14px !default;
@@ -11,31 +10,32 @@ $lb-color: #333 !default;
 
 .wptls {
   margin: $lb-margin;
-  background: $lb-background;
 
-  > a {
-    display: inline-flex;
+  &__item {
+    display: flex;
     padding: $lb-padding;
-    border: $lb-border;
+    background: $lb-background;
+    // border-left: $lb-border;
     border-radius: $lb-radius;
     // color: $lb-color;
     text-decoration: none;
   }
 
   &__img {
-    margin: 0 0 0 $lb-img-margin-right;
-
+    flex-shrink: 0;
+    margin: 0 $lb-padding 0 0;
     width: $lb-img-width;
 
-    order: 1;
+    // order: 1;
     > img {
+      display: block;
       max-width: 100%;
       height: auto !important;
     }
   }
 
   &__content {
-    flex: 1;
+    flex-grow: 1;
   }
 
   &__favicon{
@@ -47,15 +47,15 @@ $lb-color: #333 !default;
   }
 
   &__title {
-    margin: 0 0 8px;
+    margin: 0;
     font-weight: bold;
     font-size: $lb-title-font-size;
     line-height: 1.4;
   }
 
   &__domain {
-    padding-top: 9px;
-    border-top: 1px solid #ccc;
+    margin-top: $lb-padding;
+    // border-top: 1px solid #ccc;
     color: #999;
     word-wrap: break-word;
     font-size: $lb-uri-font-size;

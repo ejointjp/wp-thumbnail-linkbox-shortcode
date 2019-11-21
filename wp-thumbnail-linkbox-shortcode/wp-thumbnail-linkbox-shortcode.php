@@ -3,7 +3,7 @@
 Plugin Name: WP Thumbnail Linkbox Shortcode
 Plugin URI: http://e-joint.jp/works/wp-thumbnail-linkbox-shortcode/
 Description: You can easily create links with thumbnails with shortcode.
-Version: 0.3.0
+Version: 0.3.1
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 Text Domain: wp-thumbnail-linkbox-shortcode
@@ -160,7 +160,7 @@ class Wp_thumbnail_linkbox_shortcode
 
   public function width_callback(){
     ?><input type="text" name="wptls-setting[width]" value="<?php echo isset($this->options['width']) ? $this->options['width'] : ''; ?>">
-    <p><?php echo __('Default', 'wp-thumbnail-linkbox-shortcode'); ?>: 80 （<?php echo __('If nothing is entered it will be the default value.', 'wp-thumbnail-linkbox-shortcode'); ?>）</p>
+    <p><?php echo __('Default', 'wp-thumbnail-linkbox-shortcode'); ?>: 72 （<?php echo __('If nothing is entered it will be the default value.', 'wp-thumbnail-linkbox-shortcode'); ?>）</p>
     <?php
 
   }
@@ -282,7 +282,7 @@ class Wp_thumbnail_linkbox_shortcode
     }
 
     //値がない場合はデフォルト値を設定する
-    if(!$width) $width = 80;
+    if(!$width) $width = 72;
     if(!$ratio) $ratio = 1;
 
     $title = esc_attr($title);
@@ -306,7 +306,7 @@ class Wp_thumbnail_linkbox_shortcode
       $post_id = $this->is_eyecatch($href);
 
       $html  = '<div class="' . $name . '">';
-      $html .= '<a href="' . $href . '"' . $target . '>';
+      $html .= '<a class="' . $name . '__item" href="' . $href . '"' . $target . '>';
       $html .= '<figure class="' . $name . '__img">';
 
       if($post_id) {
