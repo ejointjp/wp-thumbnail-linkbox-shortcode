@@ -313,7 +313,7 @@ class Wp_thumbnail_linkbox_shortcode
         $html .= get_the_post_thumbnail( $post_id, $this->options['thumbnail-size']);
 
       } else {
-        $html .= '<img src="http://s.wordpress.com/mshots/v1/' . rawurlencode($href) . $query . '" alt="' . $title . '">';
+        $html .= '<img src="https://s.wordpress.com/mshots/v1/' . rawurlencode($href) . $query . '" alt="' . $title . '">';
       }
 
       $html .= '</figure>';
@@ -321,7 +321,7 @@ class Wp_thumbnail_linkbox_shortcode
       $html .= '<div class="' . $name . '__title">' . $title . '</div>';
       if($show_domain){
         $html .= '<div class="' . $name . '__domain">';
-        $html .= '<img class="' . $name . '__favicon" src="http://www.google.com/s2/favicons?domain=' . $domain . '">';
+        $html .= '<img class="' . $name . '__favicon" src="https://www.google.com/s2/favicons?domain=' . $domain . '">';
         $html .= '<span class="' . $name . '__domain-name">' . $domain . '</span>';
         $html .= '</div>';
       }
