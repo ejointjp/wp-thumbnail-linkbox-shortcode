@@ -1,139 +1,186 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
-// status
+// Requirement
+
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+// const CompressionPlugin = require('compression-webpack-plugin')
+
+// postcss plugins
+const postCssCombineDuplicatedSelectors = require('postcss-combine-duplicated-selectors')
+const cssDeclarationSorter = require('css-declaration-sorter')
+const cssMqpacker = require('@lipemat/css-mqpacker')
+const sortCssMediaQueries = require('sort-css-media-queries')
+const autoprefixer = require('autoprefixer')
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-var ENV = require('./_config/modules/status')
-var PROD = ENV === 'production'
+// Config
 
-console.log('\n' + 'status ----\n\n' + ENV + '\n\n----')
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-// requirement
+const devMode = process.env.NODE_ENV !== 'production'
+const config = require('./config')
+const dir = config.dir
+const options = config.options
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-// common
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var webpack = require('webpack')
-var path = require('path')
-// var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+// Plugins
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-// config
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-var config = require('./_config')
-var projectRoot = config.projectRoot
-var options = config.webpack
-var dir = config.dir
-var entry = require('./_config/modules/entry') // entry file's object
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-// plugins
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-var plugins = PROD ? [
-
-  new webpack.optimize.AggressiveMergingPlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin()
+let plugins = devMode ? [
 
 ] : [
-
-  new webpack.NoEmitOnErrorsPlugin()
-
+  // new CompressionPlugin({
+  //   cache: true
+  // })
 ]
 
-var commonPlugins = [
-  // new BrowserSyncPlugin(options.BrowserSyncPlugin),
-  new ExtractTextPlugin('[name]'),
-  new webpack.LoaderOptionsPlugin(options.LoaderOptionsPlugin)
-  // new webpack.LoaderOptionsPlugin(options.pugLoader)
-
+const commonPlugins = [
+  new FixStyleOnlyEntriesPlugin({
+    extensions: ['styl', 'css']
+  }),
+  new MiniCssExtractPlugin({
+    filename: '[name]'
+  })
 ]
+
 plugins = plugins.concat(commonPlugins)
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-// output a list like 'entryFile => bundleFile' to the console
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-var bundleLog = require('./_config/modules/bundle-log')
-bundleLog()
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-// webpack.config
-
-/////////////////////////////////////////////////////////////////////////////////////
+// Exports
 
 module.exports = {
+  mode: process.env.NODE_ENV || 'development',
+
+  entry: {
+    'assets/css/style.css': path.resolve(__dirname, dir.src, 'stylus', 'style.styl')
+  },
+
+  output: {
+    filename: 'assets/js/[name].js',
+    path: path.resolve(__dirname, dir.dest)
+  },
 
   resolve: {
     modules: [
-      'node_modules'
-    ],
-    alias: {
-      motiv: path.join(projectRoot, 'node_modules/motiv.scss/dist/scss')
-    }
+      'node_modules',
+      'modules'
+    ]
   },
 
-  cache: !PROD,
-  entry: entry,
-
-  output: {
-    path: dir.abs.dist,
-    filename: '[name]'
+  optimization: {
+    minimize: !devMode,
+    minimizer: [
+      new OptimizeCssAssetsPlugin(),
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        terserOptions: {
+          ecma: 6,
+          compress: true,
+          output: {
+            beautify: false,
+            comments: false
+          }
+        }
+      })
+    ]
   },
 
   plugins: plugins,
 
+  externals: {
+    jquery: 'jQuery'
+  },
+
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract([
-          {
-            loader: 'css-loader',
-            options: options.cssLoader
-          },
-          {
-            loader: 'pleeease-loader'
-          },
-          {
-            loader: 'resolve-url-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: options.sassLoader
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
           }
-        ])
+        },
+        exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /\.(styl|css)$/,
         use: [
           {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
             loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                postCssCombineDuplicatedSelectors({
+                  removeDuplicatedProperties: true
+                }),
+                cssMqpacker({
+                  sort: sortCssMediaQueries
+                }),
+                cssDeclarationSorter({
+                  order: 'smacss'
+                }),
+                autoprefixer({
+                  grid: true,
+                  browsers: [
+                    'last 2 versions'
+                  ]
+                })
+              ]
+            }
+          },
+          // {
+          //   loader: 'resolve-url-loader'
+          // },
+          {
+            loader: 'stylus-loader',
+            options: {
+              'include css': true
+            }
           }
         ]
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        // test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif|svg|ico)(\?.+)?$/,
         use: [
           {
             loader: 'url-loader',
-            options: options.urlLoader
+            options: {
+              limit: 8192,
+              name: path.join('assets', 'images', '[name].[ext]')
+            }
           },
           {
-            loader: 'img-loader',
-            options: options.imgLoader
+            loader: 'img-loader', // options あとでやる
+            options: {
+              plugins: options.imagemin
+            }
+          }
+        ]
+      },
+      {
+        // test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
+        test: /\.(eot|otf|ttf|woff2?|svg)(\?.+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: path.join('assets', 'fonts', '[name].[ext]')
+            }
           }
         ]
       }
